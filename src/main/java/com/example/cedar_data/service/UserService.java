@@ -66,7 +66,7 @@ public class UserService {
                 .expiration(new Date(System.currentTimeMillis() + 86400000)) // 24 Hours
                 .signWith(key)
                 .compact();
-        // return to the client
+        // map to login dto and return to the client
         LoginResponseDto dto = mapLogin(user, jwt);
         return dto;
     }
