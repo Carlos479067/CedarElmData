@@ -19,9 +19,14 @@ public class SecurityConfiguration {
         @Bean
         public SecurityFilterChain secureHttp(HttpSecurity http) throws Exception {
             http.csrf(AbstractHttpConfigurer::disable)
+                    // configure login
+                    .formLogin(form -> form
+                            .loginPage("/login")
+                            // Where to redirect user after login
+                            .defaultSuccessUrl("http://localhost:5173/home", true))
                     .authorizeHttpRequests((requests) -> requests
                     //No authorization needed for /signup & /account
-                    .requestMatchers("/signup", "/account", "/login").permitAll()
+                    .requestMatchers("/login", "/signup").permitAll()
                     .anyRequest().authenticated()
             );
             return http.build();
