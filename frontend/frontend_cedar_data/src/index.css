@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  background-color: lavender;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -14,20 +14,16 @@
 }
 
 a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+  font-weight: 1000;
+  color: black;
 }
 a:hover {
-  color: #535bf2;
+  color: #1a1a1a;
 }
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  padding: 0;
 }
 
 h1 {
@@ -65,4 +61,162 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+/* ----------------------------------------------------------------*/
+#header {
+  color: white;
+  border: 1px solid black;
+  background-color: #0A3161;
+  width: 100%;
+}
+
+#headerContent {
+  margin: 0 auto;
+  background-size: cover;
+  text-align: left;
+  display: flex;
+  align-items: center;
+}
+
+#headerImage {
+  width: 150px;
+  margin-right: 25em;
+}
+
+
+#topFooter {
+  background-color: cornflowerblue;
+  height: 50px;
+}
+
+#lowFooter {
+  background-color: rgb(60, 110, 197);
+  text-align: center;
+  padding: 15px 0;
+}
+
+@media (max-width: 600px) {
+  #headerContent {
+    padding: 0 10px; /* smaller padding on mobile */
+    display: flex;
+  }
+
+  #headerImage {
+    width: 100px; /* smaller image if needed */
+    margin-right: 50px;
+  }
+}
+/* ----------------------------------------------------------------*/
+.navbar {
+  display: flex;
+  background-color: cornflowerblue;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+nav a {
+  margin: 0;
+  display: block;
+  text-decoration: none;
+  padding: 1px 25px;
+  color: white;
+  cursor: pointer;
+  font-family: 'Libre Baskerville', serif;
+}
+
+nav a:hover {
+  color: white;
+  border: 1px solid white;
+  background-color: rgb(60, 110, 197);
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  font-family: 'Libre Baskerville', serif;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #0A3161;
+  font-family: 'Libre Baskerville', serif;
+  font-weight: bold;
+}
+
+.dropdown:hover .dropdown-content {
+  width: 100%;
+  display: block;
+  background-color: cornflowerblue;
+  border: 1px solid white;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  padding: 3px 0;
+  margin: 5px;
+}
+
+.search {
+  background-color: white;
+  padding: 3px 0;
+  margin: 5px;
+  border-radius: 5px;
+  color: black;
+  text-align: start;
+  width: 200px;
+}
+
+.btn-search {
+  padding: 2px 12px;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  border: 1px solid black;
+}
+
+main {
+  background-color: white;
+  color: black;
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 50px;
+  padding-top: 50px;
+}
+
+main ul {
+  text-align: center; /* makes li text centered */
+  padding: 0;
+  margin: 0;
+}
+
+main li {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+main a {
+  cursor: pointer;
+  color: #646cff;
+  text-decoration: underline;
+}
+
+main a:hover {
+  color: #0A3161;
+}
+
+#main {
+  text-align: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
