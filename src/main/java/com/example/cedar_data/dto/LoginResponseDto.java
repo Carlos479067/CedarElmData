@@ -1,5 +1,5 @@
 package com.example.cedar_data.dto;
-
+// Class is used for when server sends information the client needs after authentication
 public class LoginResponseDto {
 
     private String einNumber;
