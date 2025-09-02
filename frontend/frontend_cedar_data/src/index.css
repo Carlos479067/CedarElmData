@@ -5,7 +5,7 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: lavender;
+  background-color: white;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -48,6 +48,24 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+.container {
+  color: black;
+  align-items: center;
+  font-family: 'Libre Baskerville', serif;
+  display: block;
+
+}
+
+.container h2 {
+  text-decoration: underline;
+}
+
+.card {
+  width: 650px;
+  margin: 40px;
+  border: 4px solid #222;
 }
 
 @media (prefers-color-scheme: light) {
@@ -184,7 +202,7 @@ nav a:hover {
 }
 
 main {
-  background-color: white;
+  background-color: #f1f2f6;
   color: black;
   display: flex;
   justify-content: space-evenly;

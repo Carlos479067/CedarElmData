@@ -18,7 +18,11 @@ public class AddressService {
 
     public List<AddressDto> searchResults(String num, String name) {
         // Fetch address from repository
-        List<Address> addresses = addressRepository.searchAddressByStreetNumberAndStreetName(num, name);
+        List<Address> addresses = addressRepository.findByStreetNumberAndStreetNameContainingIgnoreCase(num, name);
+
+        if(addresses.isEmpty()) {
+            throw new RuntimeException("Address " + num + " " + name + " not found.");
+        }
         // Initialize new list
         List<AddressDto> addressDto = new ArrayList<>();
         // loop through addresses
@@ -36,6 +40,10 @@ public class AddressService {
         addressDto.setStreetName(address.getStreetName());
         addressDto.setCityName(address.getCityName());
         addressDto.setZipCode(address.getZipCode());
+        addressDto.setGateCode(address.getGateCode());
+        addressDto.setMailRoomCode(address.getMailRoomCode());
+        addressDto.setLocker_code(address.getLocker_code());
+        addressDto.setRouteNumber(address.getRouteNumber());
 
         return addressDto;
     }

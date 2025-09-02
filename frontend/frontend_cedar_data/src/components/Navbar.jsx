@@ -1,30 +1,52 @@
 import {useState} from "react";
+import {NavLink} from "react-router-dom";
 
-export default function Navbar({searchResults}) {
+export default function Navbar({updateState, resetState}) {
 
     const [addressSearch, setAddressSearch] = useState("");
 
-    function HandleQuery(event) {
+    function handleQuery(event) {
         // Gets user input
         setAddressSearch(event.target.value);
     }
 
-    function HandleSearchButton(event) {
+    function handleSearchButton(event) {
         // Prevent reloading page when button clicked
         event.preventDefault();
+        console.log("Button Clicked");
+
+        const trimAddress = addressSearch.trim();
+        const address = trimAddress.toLowerCase();
+        const splitAddress = address.split(" ");
+        const streetNumber = splitAddress[0];
+        const streetName = splitAddress.slice(1).join(" ");
 
         //Build full url
-        const getUrl = "http://localhost:8080/";
+        const getUrl = "http://localhost:8080/results?num=" + streetNumber + "&name=" + encodeURIComponent(streetName);
         //Create object request
+        const requestObj = {
+            method: "GET"
+        }
         //send request using fetch
-        //check if response is ok
-        //handle the data
-        //handle errors
+        fetch(getUrl, requestObj)
+            .then(response => {
+                if(!response.ok) {
+                    throw new Error(`Network response error: ${response.status}`);
+                }
+                return response.json();
+            })
+            .then(data => {
+                updateState(data);
+            })
+            .catch(error => {
+                throw new Error(`There was a problem with the fetch request: ${error.status}`);
+            })
     }
 
     return (
         <nav className={"navbar"}>
             <ul>
+                <li><NavLink to={"/"} onClick={resetState}><h3>Home</h3></NavLink></li>
                 <li className={"dropdown"}>
                     <a><h3>Route Codes</h3></a>
                     <ul className={"dropdown-content"}>
@@ -61,8 +83,9 @@ export default function Navbar({searchResults}) {
                 </li>
             </ul>
             <div>
-                <form className={"search-bar"} onSubmit={HandleSearchButton}>
-                    <input className={"search"} type={"text"} placeholder={"Search Address..."} onChange={HandleQuery}></input>
+                <form className={"search-bar"} onSubmit={handleSearchButton}>
+                    <input className={"search"} type={"text"} placeholder={"Search Address..."}
+                           onChange={handleQuery}></input>
                     <button className={"btn-search"} type={"submit"}>Go</button>
                 </form>
             </div>

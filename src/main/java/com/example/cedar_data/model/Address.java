@@ -10,20 +10,60 @@ public class Address {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int addressId;
+    private String routeNumber;
     private String streetNumber;
     private String streetName;
     private String cityName;
     private String zipCode;
+    private String gateCode;
+    private String mailRoomCode;
+    private String locker_code;
 
     public Address() {
 
     }
 
-    public Address(String streetNumber, String streetName, String cityName, String zipCode) {
+    public Address(String streetNumber, String streetName, String cityName, String zipCode, String gateCode, String mailRoomCode, String locker_code, String routeNumber) {
         this.streetNumber = streetNumber;
         this.streetName = streetName;
         this.cityName = cityName;
         this.zipCode = zipCode;
+        this.gateCode = gateCode;
+        this.mailRoomCode = mailRoomCode;
+        this.locker_code = locker_code;
+        this.routeNumber = routeNumber;
+    }
+
+    public String getRouteNumber() {
+        return routeNumber;
+    }
+
+    public void setRouteNumber(String routeNumber) {
+        this.routeNumber = routeNumber;
+    }
+
+    public String getGateCode() {
+        return gateCode;
+    }
+
+    public void setGateCode(String gateCode) {
+        this.gateCode = gateCode;
+    }
+
+    public String getLocker_code() {
+        return locker_code;
+    }
+
+    public void setLocker_code(String locker_code) {
+        this.locker_code = locker_code;
+    }
+
+    public String getMailRoomCode() {
+        return mailRoomCode;
+    }
+
+    public void setMailRoomCode(String mailRoomCode) {
+        this.mailRoomCode = mailRoomCode;
     }
 
     public int getAddressId() {

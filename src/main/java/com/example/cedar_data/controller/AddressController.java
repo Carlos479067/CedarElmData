@@ -2,7 +2,6 @@ package com.example.cedar_data.controller;
 import com.example.cedar_data.dto.AddressDto;
 import com.example.cedar_data.service.AddressService;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,7 +16,7 @@ public class AddressController {
         this.addressService = addressService;
     }
 
-    @GetMapping("/search")
+    @GetMapping("/results")
     public List<AddressDto> searchResults(@RequestParam String num, @RequestParam String name) {
         return addressService.searchResults(num, name);
     }

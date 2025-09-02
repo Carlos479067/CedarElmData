@@ -5,5 +5,5 @@ import java.util.List;
 
 public interface AddressRepository extends CrudRepository<Address, Integer> {
 
-    List<Address> searchAddressByStreetNumberAndStreetName(String num, String name);
+    List<Address> findByStreetNumberAndStreetNameContainingIgnoreCase(String num, String name);
 }
