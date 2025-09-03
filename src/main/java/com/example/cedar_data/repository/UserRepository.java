@@ -9,5 +9,6 @@ public interface UserRepository extends CrudRepository<User, String> {
 
     Optional<User> findByEinNumber(String einNumber);
 
-    String getByPassword(String password);
+    User getByPassword(String password);
+
 }

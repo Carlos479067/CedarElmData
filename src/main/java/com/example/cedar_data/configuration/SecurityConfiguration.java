@@ -31,7 +31,7 @@ public class SecurityConfiguration {
 //                            .defaultSuccessUrl("http://localhost:5173/home", true))
                     .authorizeHttpRequests((requests) -> requests
                     //No authorization needed for /signup & /account
-                    .requestMatchers("/login", "/signup", "/results/**").permitAll()
+                    .requestMatchers("/login", "/signup", "/results/**", "/codes/**").permitAll()
                     .anyRequest().authenticated()
             );
             return http.build();

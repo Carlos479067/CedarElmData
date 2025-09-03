@@ -16,6 +16,16 @@ public class AddressService {
         this.addressRepository = addressRepository;
     }
 
+    public List<AddressDto> routeResults(String route) {
+        List<Address> addresses = addressRepository.findByRouteNumber(route);
+        List<AddressDto> addressDto = new ArrayList<>();
+
+        for(Address a : addresses) {
+            addressDto.add(mapAddress(a));
+        }
+        return addressDto;
+    }
+
     public List<AddressDto> searchResults(String num, String name) {
         // Fetch address from repository
         List<Address> addresses = addressRepository.findByStreetNumberAndStreetNameContainingIgnoreCase(num, name);

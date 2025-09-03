@@ -55,11 +55,15 @@ button:focus-visible {
   align-items: center;
   font-family: 'Libre Baskerville', serif;
   display: block;
+  border-bottom: 2px solid black;
 
 }
 
-.container h2 {
-  text-decoration: underline;
+.searchContainer {
+  color: black;
+  align-items: center;
+  font-family: 'Libre Baskerville', serif;
+  display: block;
 }
 
 .card {
@@ -108,9 +112,9 @@ button:focus-visible {
 }
 
 #lowFooter {
-  background-color: rgb(60, 110, 197);
+  background-color: #0A3161;
   text-align: center;
-  padding: 15px 0;
+  padding: 50px 0;
 }
 
 @media (max-width: 600px) {
@@ -151,7 +155,7 @@ nav a {
 
 nav a:hover {
   color: white;
-  border: 1px solid white;
+  /*border: 1px solid white;*/
   background-color: rgb(60, 110, 197);
 }
 
@@ -210,6 +214,11 @@ main {
   padding-top: 50px;
 }
 
+#mainTitle {
+  text-decoration: underline;
+  font-size: 30px;
+}
+
 main ul {
   text-align: center; /* makes li text centered */
   padding: 0;
@@ -218,7 +227,7 @@ main ul {
 
 main li {
   list-style-type: none;
-  padding: 0;
+  padding-top: 10px;
   margin: 0;
 }
 
@@ -235,6 +244,53 @@ main a:hover {
 #main {
   text-align: center;
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding-bottom: 50px;
+}
+/* ----------------------Login-Page-----------------------------*/
+
+.loginDiv {
+  display: flex;
+  margin-top: 10px;
+  align-items: center;
+}
+
+.loginLabel {
+  width: 6em;
+  font-family: 'Libre Baskerville', serif;
+}
+
+.loginInput {
+  background-color: white;
+  padding: 3px 0;
+  margin: 5px;
+  border-radius: 5px;
+  color: black;
+  text-align: start;
+  width: 150px;
+}
+
+.loginBtn {
+  margin-top: 3em;
+  padding: 2px 12px;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  border: 2px solid black;
+}
+
+.loginBtn:hover {
+  border-color: #646cff;
+}
+
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;       /* horizontal centering */
 }

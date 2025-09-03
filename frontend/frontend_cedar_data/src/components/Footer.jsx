@@ -4,7 +4,6 @@ export default function Footer () {
         <footer>
             <div id={"topFooter"}></div>
             <div id={"lowFooter"}>
-                <h2>Footer</h2>
             </div>
         </footer>
     )

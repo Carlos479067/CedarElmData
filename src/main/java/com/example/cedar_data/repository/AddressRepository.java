@@ -6,4 +6,5 @@ import java.util.List;
 public interface AddressRepository extends CrudRepository<Address, Integer> {
 
     List<Address> findByStreetNumberAndStreetNameContainingIgnoreCase(String num, String name);
+    List<Address> findByRouteNumber(String route);
 }

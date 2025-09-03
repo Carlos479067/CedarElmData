@@ -1,10 +1,10 @@
-
-export default function Header({searchResults}) {
+import Logo from "../assets/eagle.png";
+export default function Header() {
 
     return (
         <header id={"header"}>
             <div id={"headerContent"}>
-                <img id={"headerImage"} src={"src/assets/eagle.png"} alt={"logo"} />
+                <img id={"headerImage"} src={Logo} alt={"logo"} />
                 <div>
                     <h1></h1>
                 </div>
