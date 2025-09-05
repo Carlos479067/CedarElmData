@@ -1,6 +1,7 @@
 package com.example.cedar_data.configuration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
@@ -24,11 +25,6 @@ public class SecurityConfiguration {
         @Bean
         public SecurityFilterChain secureHttp(HttpSecurity http) throws Exception {
             http.csrf(AbstractHttpConfigurer::disable)
-                    // configure login
-//                    .formLogin(form -> form
-//                            .loginPage("/login")
-//                            // Where to redirect user after login
-//                            .defaultSuccessUrl("http://localhost:5173/home", true))
                     .authorizeHttpRequests((requests) -> requests
                     //No authorization needed for /signup & /account
                     .requestMatchers("/login", "/signup", "/results/**", "/codes/**").permitAll()
