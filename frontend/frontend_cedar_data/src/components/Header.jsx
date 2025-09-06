@@ -17,7 +17,7 @@ export default function Header({loggedInUser, setLoggedInUser}) {
         <header id={"header"}>
             <div id={"headerContent"}>
                 <img id={"headerImage"} src={Logo} alt={"logo"} />
-                <h3>Good Morning, {loggedInUser?.firstName}</h3>
+                <h3>Welcome {loggedInUser?.firstName}</h3>
                 <div id={"logoutContainer"}>
                     <img id={"headerLogout"} src={logoutImg} alt={"logout"} onClick={logout}/>
                     <span onClick={logout}>Logout</span>

@@ -3,6 +3,7 @@ import com.example.cedar_data.dto.LoginResponseDto;
 import com.example.cedar_data.dto.SignUpDto;
 import com.example.cedar_data.dto.UserDto;
 import com.example.cedar_data.model.User;
+import com.example.cedar_data.repository.AuthorizedEinRepository;
 import io.jsonwebtoken.Jwts;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -15,10 +16,12 @@ import java.util.Date;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final AuthorizedEinRepository authorizedEinRepository;
     private final BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    public UserService(UserRepository userRepository, BCryptPasswordEncoder bCryptPasswordEncoder) {
+    public UserService(UserRepository userRepository, AuthorizedEinRepository authorizedEinRepository , BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userRepository = userRepository;
+        this.authorizedEinRepository = authorizedEinRepository;
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
@@ -34,6 +37,10 @@ public class UserService {
 
         if(userRepository.findByEinNumber(signUpDto.getEinNumber()).isPresent()) {
             throw new RuntimeException("EIN Number already in use!");
+        }
+
+        if(!authorizedEinRepository.findByAuthorizedEin(signUpDto.getEinNumber()).isPresent()) {
+            throw new RuntimeException("EIN unauthorized");
         }
 
         user.setEinNumber(signUpDto.getEinNumber());

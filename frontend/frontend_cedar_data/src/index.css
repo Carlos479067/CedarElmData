@@ -126,17 +126,6 @@ button:focus-visible {
   padding: 50px 0;
 }
 
-@media (max-width: 600px) {
-  #headerContent {
-    padding: 0 10px; /* smaller padding on mobile */
-    display: flex;
-  }
-
-  #headerImage {
-    width: 100px; /* smaller image if needed */
-    margin-right: 50px;
-  }
-}
 /* ----------------------------------------------------------------*/
 .navbar {
   display: flex;
@@ -222,9 +211,8 @@ main {
 
 #mainTitle {
   text-decoration: underline;
-  font-size: 30px;
+  font-size: 35px;
   text-align: center;
-  margin-bottom: 25px;
 }
 
 main ul {
@@ -321,4 +309,180 @@ main a:hover {
 
 .successMsg {
   color: green;
+}
+
+/* ----------------------Form-Page-----------------------------*/
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 40px;
+  align-items: center;
+  position: relative;
+}
+
+.formContainer button {
+  margin-top: 25px;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  border: 2px solid black;
+}
+
+.formContainer button:hover {
+  border-color: #646cff;
+}
+
+.formContainer h2 {
+  text-decoration: underline;
+}
+
+#vacationFormImg {
+  width: 800px;
+  height: auto; /* Ensure it scales with the container */
+}
+
+@media print {
+  .formContainer {
+    width: 800px;           /* Fixed width to match image */
+    height: 1000px;         /* Exact height of your form image */
+    padding: 0;             /* Remove padding */
+    margin: 0 auto;         /* Center on page */
+    position: relative;     /* Absolute inputs are relative to container */
+    display: block;         /* Remove flex to avoid interference */
+  }
+  #vacationFormImg {
+    width: 100%;            /* Image fits container exactly */
+    height: auto;
+  }
+  .formContainer h2 {
+    display: none;
+  }
+  .formContainer button {
+    display: none;
+  }
+  .navbar {
+    display: none;
+  }
+  #header {
+    display: none;
+  }
+
+}
+
+/* ----------------------Form-Page-Inputs-----------------------------*/
+
+#holdMailNameInput {
+  position: absolute;
+  top: 33%;
+  left: 39%;
+  background-color: #f8efae;
+  border-radius: 5px;
+  color: black;
+  height: 1.5%;
+  width: 15%;
+}
+
+#holdMailAddressInput {
+    position: absolute;
+    top: 295px;
+    left: 499px;
+    background-color: #f8efae;
+    border-radius: 5px;
+    color: black;
+    height: 15px;
+    width: 200px;
+}
+
+#holdMailPhoneNumberInput {
+  position: absolute;
+  top: 332px;
+  left: 499px;
+  background-color: #f8efae;
+  border-radius: 5px;
+  color: black;
+  height: 8px;
+  width: 100px;
+}
+
+#holdMailEmailInput {
+  position: absolute;
+  top: 359px;
+  left: 499px;
+  background-color: #f8efae;
+  border-radius: 5px;
+  color: black;
+  height: 8px;
+  width: 200px;
+}
+
+#holdMailStartDateInput {
+  position: absolute;
+  top: 295px;
+  right: 325px;
+  background-color: #f8efae;
+  border-radius: 5px;
+  color: black;
+  height: 15px;
+  width: 200px;
+}
+
+#holdMailEndDateInput {
+  position: absolute;
+  top: 331px;
+  right: 325px;
+  background-color: #f8efae;
+  border-radius: 5px;
+  color: black;
+  height: 8px;
+  width: 200px;
+}
+
+#holdMailCheckBoxOneInput {
+  position: absolute;
+  top: 234px;
+  right: 516px;
+  background-color: #f8efae;
+  border-radius: 5px;
+  color: black;
+  height: 12px;
+  width: 20px;
+}
+
+#holdMailCheckBoxTwoInput {
+  position: absolute;
+  top: 248px;
+  right: 516px;
+  background-color: #f8efae;
+  border-radius: 5px;
+  color: black;
+  height: 12px;
+  width: 20px;
+}
+
+/* ----------------------Form-Page-Inputs-----------------------------*/
+
+@media (max-width: 600px) {
+
+  .search {
+    width: 100px;
+  }
+
+  #header h3 {
+    padding-right: 45px;
+  }
+
+  #headerContent {
+    padding: 0 10px; /* smaller padding on mobile */
+    display: flex;
+  }
+
+  #headerImage {
+    width: 100px; /* smaller image if needed */
+    margin-right: 50px;
+  }
+
+  #vacationFormImg {
+    width: 350px;
+  }
 }

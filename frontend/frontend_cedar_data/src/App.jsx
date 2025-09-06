@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
 import Home from "./pages/Home.jsx";
 import RouteCodes from "./pages/RouteCodes.jsx";
+import Forms from "./pages/Forms.jsx";
 import {useEffect, useState} from "react";
 import {Navigate, Route, Routes} from "react-router-dom";
 import Login from "./pages/Login.jsx";
@@ -36,12 +37,13 @@ function App() {
   return (
     <div className={"pageContainer"}>
       <Header searchResults={searchResults} loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>
-      <Navbar updateState={updateState} resetState={resetState}/>
+      <Navbar updateState={updateState} resetState={resetState} loggedInUser={loggedInUser}/>
         <main style={{flex: "1"}}>
         <Routes>
             <Route path={"/login"} element={<Login loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>}/>
             <Route path={"/signup"} element={<Signup />}/>
             <Route path={"/"} element={loggedInUser ? <Home searchResults={searchResults}/> : <Navigate to={"/login"} />}/>
+            <Route path={"/forms"} element={<Forms />}/>
             <Route path={"/codes/:routeNumber"} element={<RouteCodes/>}/>
         </Routes>
             </main>
