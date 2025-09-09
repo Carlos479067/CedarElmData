@@ -5,6 +5,7 @@ import com.example.cedar_data.repository.AddressRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -26,20 +27,29 @@ public class AddressService {
         return addressDto;
     }
 
-    public List<AddressDto> searchResults(String num, String name) {
-        // Fetch address from repository
-        List<Address> addresses = addressRepository.findByStreetNumberAndStreetNameContainingIgnoreCase(num, name);
+    public List<AddressDto> searchResults(String num, String name, String neighborhood) {
 
-        if(addresses.isEmpty()) {
-            throw new RuntimeException("Address " + num + " " + name + " not found.");
-        }
         // Initialize new list
         List<AddressDto> addressDto = new ArrayList<>();
-        // loop through addresses
-        for(Address a : addresses) {
-            // converts each address to dto and stores in list
-            addressDto.add(mapAddress(a));
+
+        if(num != null && !num.isEmpty() && name != null && !name.isEmpty()) {
+            // Fetch address from repository
+            List<Address> streetNumAndName = addressRepository.findByStreetNumberAndStreetNameContainingIgnoreCase(num, name);
+            // loop through addresses
+            for(Address a : streetNumAndName) {
+                // converts each address to dto and stores in list
+                addressDto.add(mapAddress(a));
+            }
+            return addressDto;
+        } else if(neighborhood != null && !neighborhood.isEmpty()) {
+            List<Address> neighborhoodOnly = addressRepository.findByNeighborhoodContainingIgnoreCase(neighborhood);
+            for(Address a : neighborhoodOnly) {
+                addressDto.add(mapAddress(a));
+            }
+            return addressDto;
         }
+
+
         return addressDto;
     }
 
@@ -54,6 +64,7 @@ public class AddressService {
         addressDto.setMailRoomCode(address.getMailRoomCode());
         addressDto.setLocker_code(address.getLocker_code());
         addressDto.setRouteNumber(address.getRouteNumber());
+        addressDto.setNeighborhood(address.getNeighborhood());
 
         return addressDto;
     }

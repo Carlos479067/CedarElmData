@@ -18,12 +18,13 @@ public class Address {
     private String gateCode;
     private String mailRoomCode;
     private String locker_code;
+    private String neighborhood;
 
     public Address() {
 
     }
 
-    public Address(String streetNumber, String streetName, String cityName, String zipCode, String gateCode, String mailRoomCode, String locker_code, String routeNumber) {
+    public Address(String streetNumber, String streetName, String cityName, String zipCode, String gateCode, String mailRoomCode, String locker_code, String routeNumber, String neighborhood) {
         this.streetNumber = streetNumber;
         this.streetName = streetName;
         this.cityName = cityName;
@@ -32,6 +33,15 @@ public class Address {
         this.mailRoomCode = mailRoomCode;
         this.locker_code = locker_code;
         this.routeNumber = routeNumber;
+        this.neighborhood = neighborhood;
+    }
+
+    public String getNeighborhood() {
+        return neighborhood;
+    }
+
+    public void setNeighborhood(String neighborhood) {
+        this.neighborhood = neighborhood;
     }
 
     public String getRouteNumber() {

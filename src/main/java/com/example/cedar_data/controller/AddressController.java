@@ -18,12 +18,17 @@ public class AddressController {
     }
 
     @GetMapping("/results")
-    public List<AddressDto> searchResults(@RequestParam String num, @RequestParam String name) {
-        return addressService.searchResults(num, name);
+    public List<AddressDto> searchResults(@RequestParam(required = false) String num, @RequestParam(required = false) String name, @RequestParam(required = false) String neighborhood) {
+        return addressService.searchResults(num, name, neighborhood);
     }
 
     @GetMapping("/codes/{routeNumber}")
     public List<AddressDto> routeResults(@PathVariable String routeNumber) {
+        return addressService.routeResults(routeNumber);
+    }
+
+    @GetMapping("/splits/{routeNumber}")
+    public List<AddressDto> splitResults(@PathVariable String routeNumber) {
         return addressService.routeResults(routeNumber);
     }
 

@@ -10,13 +10,14 @@ public class AddressDto {
     private String mailRoomCode;
     private String locker_code;
     private String routeNumber;
+    private String neighborhood;
 
 
     public AddressDto() {
 
     }
 
-    public AddressDto(String streetNumber, String streetName, String cityName, String zipCode, String gateCode, String mailRoomCode, String locker_code, String routeNumber) {
+    public AddressDto(String streetNumber, String streetName, String cityName, String zipCode, String gateCode, String mailRoomCode, String locker_code, String routeNumber, String neighborhood) {
         this.streetNumber = streetNumber;
         this.streetName = streetName;
         this.cityName = cityName;
@@ -25,6 +26,15 @@ public class AddressDto {
         this.mailRoomCode = mailRoomCode;
         this.locker_code = locker_code;
         this.routeNumber = routeNumber;
+        this.neighborhood = neighborhood;
+    }
+
+    public String getNeighborhood() {
+        return neighborhood;
+    }
+
+    public void setNeighborhood(String neighborhood) {
+        this.neighborhood = neighborhood;
     }
 
     public String getGateCode() {

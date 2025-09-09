@@ -13,16 +13,24 @@ export default function Navbar({updateState, resetState, loggedInUser}) {
     function handleSearchButton(event) {
         // Prevent reloading page when button clicked
         event.preventDefault();
-        console.log("Button Clicked");
+
+        let getUrl = "";
 
         const trimAddress = addressSearch.trim();
         const address = trimAddress.toLowerCase();
         const splitAddress = address.split(" ");
-        const streetNumber = splitAddress[0];
-        const streetName = splitAddress.slice(1).join(" ");
 
-        //Build full url
-        const getUrl = "http://localhost:8080/results?num=" + streetNumber + "&name=" + encodeURIComponent(streetName);
+        if(!isNaN(splitAddress[0])) {
+            const streetNumber = splitAddress[0];
+            const streetName = splitAddress.slice(1).join(" ");
+            //Build full url
+            getUrl = "http://localhost:8080/results?num=" + streetNumber + "&name=" + encodeURIComponent(streetName);
+        }
+        else if(isNaN(splitAddress[0])) {
+            const neighborhood = splitAddress[0];
+            getUrl = "http://localhost:8080/results?neighborhood=" + encodeURIComponent(neighborhood);
+        }
+
         //Create object request
         const requestObj = {
             method: "GET"

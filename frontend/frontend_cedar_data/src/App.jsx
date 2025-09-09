@@ -5,6 +5,7 @@ import Footer from "./components/Footer.jsx";
 import Home from "./pages/Home.jsx";
 import RouteCodes from "./pages/RouteCodes.jsx";
 import Forms from "./pages/Forms.jsx";
+import RouteSplits from "./pages/RouteSplits.jsx";
 import {useEffect, useState} from "react";
 import {Navigate, Route, Routes} from "react-router-dom";
 import Login from "./pages/Login.jsx";
@@ -45,6 +46,7 @@ function App() {
             <Route path={"/"} element={loggedInUser ? <Home searchResults={searchResults}/> : <Navigate to={"/login"} />}/>
             <Route path={"/forms"} element={<Forms />}/>
             <Route path={"/codes/:routeNumber"} element={<RouteCodes/>}/>
+            <Route path={"/splits/:routeNumber"} element={<RouteSplits/>}/>
         </Routes>
             </main>
         <Footer/>

@@ -9,7 +9,7 @@ export default function RouteCodes() {
 
     function handleAddresses() {
 
-        const getUrl = `http://localhost:8080/codes/${routeNumber}`;
+        const getUrl = `http://localhost:8080/splits/${routeNumber}`;
 
         const addressObj = {
             method: "GET"
@@ -26,7 +26,7 @@ export default function RouteCodes() {
                 setAddresses(data);
             })
             .catch((error) => {
-               throw new Error(`There was a problem with the fetch request: ${error.status}`);
+                throw new Error(`There was a problem with the fetch request: ${error.status}`);
             });
     }
 
@@ -46,13 +46,13 @@ export default function RouteCodes() {
 
 
     useEffect(() => {
-            handleAddresses()
-        }, []);
+        handleAddresses()
+    }, []);
 
     return (
         <main>
             <div>
-                <h2 id={"mainTitle"}>Route {routeNumber} Codes</h2>
+                <h2 id={"mainTitle"}>Route {routeNumber} Splits</h2>
                 <ul>
                     {addresses.map((address) => {
                         return <RenderAddress addressObj={address} key={address.address_id}/>
