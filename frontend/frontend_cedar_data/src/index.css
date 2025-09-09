@@ -337,20 +337,238 @@ main a:hover {
   text-decoration: underline;
 }
 
-#vacationFormImg {
-  width: 800px;
-  height: auto; /* Ensure it scales with the container */
+.formTemplate {
+  position: relative;
+  width: 900px; /* match your form image */
+  height: 600px;
 }
 
+.formTemplate img {
+  width: 100%;
+  height: 100%;
+}
+
+.fieldName {
+  position: absolute;
+  top: 157px; /* adjust to where the name goes */
+  left: 320px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.nameInput {
+  background-color: #f8efae;
+  color: black;
+  border-radius: 5px;
+  border: 1px solid black;
+  position: absolute; /* if you want to move it over the form */
+  bottom: 213px;
+  left: 85px;
+  width: 150px;
+  z-index: 2;
+}
+
+.fieldEmail {
+  position: absolute;
+  top: 309px; /* adjust to where the name goes */
+  left: 320px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.emailInput {
+  background-color: #f8efae;
+  color: black;
+  border-radius: 5px;
+  border: 1px solid black;
+  position: absolute; /* if you want to move it over the form */
+  bottom: 147px;
+  left: 85px;
+  width: 150px;
+  z-index: 2;
+}
+
+.fieldStartDate {
+  position: absolute;
+  top: 236px; /* adjust to where the name goes */
+  right: 235px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.startDateInput {
+  background-color: #f8efae;
+  color: black;
+  border-radius: 5px;
+  border: 1px solid black;
+  position: absolute; /* if you want to move it over the form */
+  bottom: 147px;
+  left: 590px;
+  width: 150px;
+  z-index: 2;
+}
+
+.fieldEndDate {
+  position: absolute;
+  top: 277px; /* adjust to where the name goes */
+  right: 240px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.endDateInput {
+  background-color: #f8efae;
+  color: black;
+  border-radius: 5px;
+  border: 1px solid black;
+  position: absolute; /* if you want to move it over the form */
+  bottom: 147px;
+  right: 55px;
+  width: 150px;
+  z-index: 2;
+}
+
+.fieldAddress {
+  position: absolute;
+  top: 235px; /* adjust to where the name goes */
+  left: 320px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.addressInput {
+  background-color: #f8efae;
+  color: black;
+  border-radius: 5px;
+  border: 1px solid black;
+  position: absolute; /* if you want to move it over the form */
+  bottom: 213px;
+  left: 580px;
+  width: 150px;
+  z-index: 2;
+}
+
+.fieldPhoneNumber {
+  position: absolute;
+  top: 278px; /* adjust to where the name goes */
+  left: 320px;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.phoneNumberInput {
+  background-color: #f8efae;
+  color: black;
+  border-radius: 5px;
+  border: 1px solid black;
+  position: absolute; /* if you want to move it over the form */
+  bottom: 213px;
+  right: 20px;
+  width: 150px;
+  z-index: 2;
+}
+
+.fieldCheckOne {
+  position: absolute;
+  top: 153px; /* adjust to where the name goes */
+  left: 572px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.checkBoxOneInput {
+  color: black;
+  border-radius: 5px;
+  border: 1px solid black;
+  position: absolute; /* if you want to move it over the form */
+  bottom: 60px;
+  left: 165px;
+  width: 150px;
+  z-index: 2;
+}
+
+.fieldCheckTwo {
+  position: absolute;
+  top: 171px; /* adjust to where the name goes */
+  left: 572px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.checkBoxTwoInput {
+  color: black;
+  border-radius: 5px;
+  border: 1px solid black;
+  position: absolute; /* if you want to move it over the form */
+  bottom: 60px;
+  left: 670px;
+  width: 150px;
+  z-index: 2;
+}
+
+.formText {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px 200px;
+  justify-items: start;
+  padding-left: 30px;
+}
+
+/* ----------------------Form-Page-End-----------------------------*/
+
 @media print {
-  .formContainer {
-    width: 800px;           /* Fixed width to match image */
-    height: 1000px;         /* Exact height of your form image */
-    padding: 0;             /* Remove padding */
-    margin: 0 auto;         /* Center on page */
-    position: relative;     /* Absolute inputs are relative to container */
-    display: block;         /* Remove flex to avoid interference */
+
+  @page {
+    margin: 0; /* remove default browser margins */
   }
+
+  .formContainer {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    margin: 0;
+    right: 0;
+    left: 0;
+    display: block;
+    text-align: center;
+  }
+
+  .formText {
+    display: none;
+  }
+
+  .nameInput {
+    display: none;
+  }
+
+  .addressInput {
+    display: none;
+  }
+
+  .checkBoxOneInput {
+    display: none;
+  }
+
+  .checkBoxTwoInput {
+    display: none;
+  }
+
+  .emailInput {
+    display: none;
+  }
+
+  .endDateInput {
+    display: none;
+  }
+
+  .startDateInput {
+    display: none;
+  }
+
+  .phoneNumberInput {
+    display: none;
+  }
+
   #vacationFormImg {
     width: 100%;            /* Image fits container exactly */
     height: auto;
@@ -369,98 +587,6 @@ main a:hover {
   }
 
 }
-
-/* ----------------------Form-Page-Inputs-----------------------------*/
-
-#holdMailNameInput {
-  position: absolute;
-  top: 33%;
-  left: 39%;
-  background-color: #f8efae;
-  border-radius: 5px;
-  color: black;
-  height: 1.5%;
-  width: 15%;
-}
-
-#holdMailAddressInput {
-    position: absolute;
-    top: 295px;
-    left: 499px;
-    background-color: #f8efae;
-    border-radius: 5px;
-    color: black;
-    height: 15px;
-    width: 200px;
-}
-
-#holdMailPhoneNumberInput {
-  position: absolute;
-  top: 332px;
-  left: 499px;
-  background-color: #f8efae;
-  border-radius: 5px;
-  color: black;
-  height: 8px;
-  width: 100px;
-}
-
-#holdMailEmailInput {
-  position: absolute;
-  top: 359px;
-  left: 499px;
-  background-color: #f8efae;
-  border-radius: 5px;
-  color: black;
-  height: 8px;
-  width: 200px;
-}
-
-#holdMailStartDateInput {
-  position: absolute;
-  top: 295px;
-  right: 325px;
-  background-color: #f8efae;
-  border-radius: 5px;
-  color: black;
-  height: 15px;
-  width: 200px;
-}
-
-#holdMailEndDateInput {
-  position: absolute;
-  top: 331px;
-  right: 325px;
-  background-color: #f8efae;
-  border-radius: 5px;
-  color: black;
-  height: 8px;
-  width: 200px;
-}
-
-#holdMailCheckBoxOneInput {
-  position: absolute;
-  top: 234px;
-  right: 516px;
-  background-color: #f8efae;
-  border-radius: 5px;
-  color: black;
-  height: 12px;
-  width: 20px;
-}
-
-#holdMailCheckBoxTwoInput {
-  position: absolute;
-  top: 248px;
-  right: 516px;
-  background-color: #f8efae;
-  border-radius: 5px;
-  color: black;
-  height: 12px;
-  width: 20px;
-}
-
-/* ----------------------Form-Page-Inputs-----------------------------*/
 
 @media (max-width: 600px) {
 

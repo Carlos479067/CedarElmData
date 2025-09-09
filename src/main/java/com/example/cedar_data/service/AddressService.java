@@ -3,9 +3,7 @@ import com.example.cedar_data.dto.AddressDto;
 import com.example.cedar_data.model.Address;
 import com.example.cedar_data.repository.AddressRepository;
 import org.springframework.stereotype.Service;
-
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 @Service

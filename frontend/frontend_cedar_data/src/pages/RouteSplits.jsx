@@ -1,8 +1,9 @@
 import {useState} from "react";
 import {useParams} from "react-router-dom";
 import {useEffect} from "react";
+import gif from "../assets/under-construction-pikachu.gif";
 
-export default function RouteCodes() {
+export default function RouteSplits() {
 
     const [addresses, setAddresses] = useState([]);
     const {routeNumber} = useParams();
@@ -11,11 +12,11 @@ export default function RouteCodes() {
 
         const getUrl = `http://localhost:8080/splits/${routeNumber}`;
 
-        const addressObj = {
+        const addressObject = {
             method: "GET"
         }
 
-        fetch(getUrl, addressObj)
+        fetch(getUrl, addressObject)
             .then((response) => {
                 if(!response.ok) {
                     throw new Error(`Network response error: ${response.status}`);
@@ -30,15 +31,15 @@ export default function RouteCodes() {
             });
     }
 
-    function RenderAddress({addressObj}) {
+    function RenderAddresses({address}) {
         return (
             <li>
                 <div className={"container"}>
-                    {addressObj.streetNumber ? <h2>{addressObj.streetNumber ? addressObj.streetNumber : ""} {addressObj.streetNumber ? addressObj.streetName : ""} {addressObj.streetNumber ? addressObj.cityName : ""} {addressObj.streetNumber ? addressObj.zipCode : ""}</h2> : ""}
-                    {addressObj.neighborhood ? <h2>{addressObj.neighborhood ? "Neighborhood: " : ""}{addressObj.neighborhood}</h2> : ""}
-                    {addressObj.gateCode ? <h2>{addressObj.gateCode ? "Gate Code: " : ""}{addressObj.gateCode}</h2> : ""}
-                    {addressObj.mailRoomCode ? <h2>{addressObj.mailRoomCode ? "Mailroom Code: " : ""}{addressObj.mailRoomCode}</h2> : ""}
-                    {addressObj.locker_code ? <h2>{addressObj.locker_code ? "Locker Room Code: " : ""}{addressObj.locker_code}</h2> : ""}
+                    {address.streetNumber ? <h2>{address.streetNumber ? address.streetNumber : ""} {address.streetNumber ? address.streetName : ""} {address.streetNumber ? address.cityName : ""} {address.streetNumber ? address.zipCode : ""}</h2> : ""}
+                    {address.neighborhood ? <h2>{address.neighborhood ? "Neighborhood: " : ""}{address.neighborhood}</h2> : ""}
+                    {address.gateCode ? <h2>{address.gateCode ? "Gate Code: " : ""}{address.gateCode}</h2> : ""}
+                    {address.mailRoomCode ? <h2>{address.mailRoomCode ? "Mailroom Code: " : ""}{address.mailRoomCode}</h2> : ""}
+                    {address.locker_code ? <h2>{address.locker_code ? "Locker Room Code: " : ""}{address.locker_code}</h2> : ""}
                 </div>
             </li>
         )
@@ -53,9 +54,10 @@ export default function RouteCodes() {
         <main>
             <div>
                 <h2 id={"mainTitle"}>Route {routeNumber} Splits</h2>
+                <img src={gif} alt={"Under Construction"}/>
                 <ul>
                     {addresses.map((address) => {
-                        return <RenderAddress addressObj={address} key={address.address_id}/>
+                        return <RenderAddresses address={address} key={address.address_id}/>
                     })}
                 </ul>
             </div>
