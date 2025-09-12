@@ -8,7 +8,7 @@ export default function RouteCodes() {
     const {routeNumber} = useParams();
 
     function handleAddresses() {
-        const backendUrl = "http://ec2-3-142-236-250.us-east-2.compute.amazonaws.com";
+        const backendUrl = "/api";
         const getUrl = `${backendUrl}/codes/${routeNumber}`;
 
         const addressObj = {
