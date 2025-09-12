@@ -29,7 +29,8 @@ public class SecurityConfiguration {
                     //No authorization needed for /signup & /account
                     .requestMatchers("/login", "/signup", "/results/**", "/codes/**").permitAll()
                     .anyRequest().authenticated()
-            );
+            )
+                    .formLogin(AbstractHttpConfigurer::disable);
             return http.build();
         }
 
