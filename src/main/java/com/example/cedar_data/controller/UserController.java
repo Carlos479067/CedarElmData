@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import com.example.cedar_data.service.UserService;
 
 @RestController
+@RequestMapping("/api")
 public class UserController {
 
     private final UserService userService;
@@ -24,12 +25,12 @@ public class UserController {
         return userService.getAccountInfo(einNumber);
     }
 
-    @PostMapping("/api/signup")
+    @PostMapping("/signup")
     public SignUpDto createUserAccount(@RequestBody SignUpDto signUpDto) {
         return userService.signUpUser(signUpDto);
     }
 
-    @PostMapping("api/login")
+    @PostMapping("/login")
     public LoginResponseDto loginUser(@RequestBody LoginDto loginDto) {
         return userService.loginUser(loginDto.getEinNumber(), loginDto.getPassword());
     }

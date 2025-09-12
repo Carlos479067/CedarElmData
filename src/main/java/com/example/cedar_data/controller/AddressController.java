@@ -1,14 +1,12 @@
 package com.example.cedar_data.controller;
 import com.example.cedar_data.dto.AddressDto;
 import com.example.cedar_data.service.AddressService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@RequestMapping("/api")
 public class AddressController {
 
     private final AddressService addressService;
