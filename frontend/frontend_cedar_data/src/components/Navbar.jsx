@@ -14,7 +14,7 @@ export default function Navbar({updateState, resetState, loggedInUser}) {
         // Prevent reloading page when button clicked
         event.preventDefault();
         // AWS backend url
-        const backendUrl = "/api";
+        const backendUrl = "http://ec2-3-142-236-250.us-east-2.compute.amazonaws.com";
         let getUrl = "";
 
         const trimAddress = addressSearch.trim();
