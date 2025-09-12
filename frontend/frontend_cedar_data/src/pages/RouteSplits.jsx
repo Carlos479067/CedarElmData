@@ -52,9 +52,10 @@ export default function RouteSplits() {
 
     return (
         <main>
-            <div>
+            <div className={"routeSplitsTitle"}>
+                <img src={gif} alt={"Under Construction"} style={{paddingRight: "25px"}}/>
                 <h2 id={"mainTitle"}>Route {routeNumber} Splits</h2>
-                <img src={gif} alt={"Under Construction"}/>
+                <img src={gif} alt={"Under Construction"} style={{paddingLeft: "25px"}}/>
                 <ul>
                     {addresses.map((address) => {
                         return <RenderAddresses address={address} key={address.address_id}/>

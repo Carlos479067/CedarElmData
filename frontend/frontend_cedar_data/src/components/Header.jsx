@@ -20,7 +20,7 @@ export default function Header({loggedInUser, setLoggedInUser}) {
                 <h3>Welcome {loggedInUser?.firstName}</h3>
                 <div id={"logoutContainer"}>
                     <img id={"headerLogout"} src={logoutImg} alt={"logout"} onClick={logout}/>
-                    <span onClick={logout}>Logout</span>
+                    <h4 onClick={logout}>Logout</h4>
                 </div>
             </div>
         </header>

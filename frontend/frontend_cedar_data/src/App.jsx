@@ -39,7 +39,7 @@ function App() {
     <div className={"pageContainer"}>
       <Header searchResults={searchResults} loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>
       <Navbar updateState={updateState} resetState={resetState} loggedInUser={loggedInUser}/>
-        <main style={{flex: "1"}}>
+        <main className={"appMain"}>
         <Routes>
             <Route path={"/login"} element={<Login loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>}/>
             <Route path={"/signup"} element={<Signup />}/>
