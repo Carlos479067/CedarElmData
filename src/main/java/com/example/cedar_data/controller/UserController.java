@@ -24,7 +24,7 @@ public class UserController {
         return userService.getAccountInfo(einNumber);
     }
 
-    @PostMapping("/signup")
+    @PostMapping("/api/signup")
     public SignUpDto createUserAccount(@RequestBody SignUpDto signUpDto) {
         return userService.signUpUser(signUpDto);
     }

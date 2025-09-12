@@ -5,7 +5,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "authorizedein")
+@Table(name = "authorized_ein")
 public class AuthorizedEin {
 
     @Id

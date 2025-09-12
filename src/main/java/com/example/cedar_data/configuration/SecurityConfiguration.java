@@ -29,7 +29,7 @@ public class SecurityConfiguration {
                     )
                     .authorizeHttpRequests((requests) -> requests
                     //No authorization needed for /signup & /account
-                    .requestMatchers("/api/login", "/signup", "/results/**", "/codes/**").permitAll()
+                    .requestMatchers("/api/login", "/api/signup", "/results/**", "/codes/**").permitAll()
                     .anyRequest().authenticated()
             );
             return http.build();
