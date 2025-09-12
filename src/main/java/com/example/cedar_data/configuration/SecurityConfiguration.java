@@ -27,17 +27,16 @@ public class SecurityConfiguration {
             http.csrf(AbstractHttpConfigurer::disable)
                     .authorizeHttpRequests((requests) -> requests
                     //No authorization needed for /signup & /account
-                    .requestMatchers("/login", "/signup", "/results/**", "/codes/**").permitAll()
+                    .requestMatchers("/api/login", "/signup", "/results/**", "/codes/**").permitAll()
                     .anyRequest().authenticated()
-            )
-                    .formLogin(AbstractHttpConfigurer::disable);
+            );
             return http.build();
         }
 
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("http://3.142.236.250", "http://ec2-3-142-236-250.us-east-2.compute.amazonaws.com")); // your React dev server
+        configuration.setAllowedOrigins(List.of("http://3.142.236.250", "http://localhost:3000", "http://127.0.0.1:3000")); // your React dev server
         configuration.setAllowedMethods(List.of("GET","POST","PUT","DELETE","OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true);

@@ -29,7 +29,7 @@ public class UserController {
         return userService.signUpUser(signUpDto);
     }
 
-    @PostMapping("/login")
+    @PostMapping("api/login")
     public LoginResponseDto loginUser(@RequestBody LoginDto loginDto) {
         return userService.loginUser(loginDto.getEinNumber(), loginDto.getPassword());
     }

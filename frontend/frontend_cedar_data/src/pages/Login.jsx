@@ -22,10 +22,10 @@ export default function Login({setLoggedInUser}) {
 
     function handleLogin(event) {
         event.preventDefault();
-        // const backendUrl = "/api";
+        const backendUrl = "/api";
         const cleanEin = inputEin.trim();
 
-        const getUrl = `/login`;
+        const getUrl = `${backendUrl}/login`;
 
         const loginObj = {
             method: "POST",
