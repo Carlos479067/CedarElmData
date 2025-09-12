@@ -22,7 +22,7 @@ public class AddressController {
         return addressService.searchResults(num, name, neighborhood);
     }
 
-    @GetMapping("/codes/{routeNumber}")
+    @GetMapping("/api/codes/{routeNumber}")
     public List<AddressDto> routeResults(@PathVariable String routeNumber) {
         return addressService.routeResults(routeNumber);
     }

@@ -24,7 +24,9 @@ public class SecurityConfiguration {
         // Declare bean that configures security rules
         @Bean
         public SecurityFilterChain secureHttp(HttpSecurity http) throws Exception {
-            http.csrf(AbstractHttpConfigurer::disable)
+            http.csrf(csrf -> csrf
+                            .ignoringRequestMatchers("/api/login")
+                    )
                     .authorizeHttpRequests((requests) -> requests
                     //No authorization needed for /signup & /account
                     .requestMatchers("/api/login", "/signup", "/results/**", "/codes/**").permitAll()
