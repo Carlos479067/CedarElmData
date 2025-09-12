@@ -15,7 +15,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
         public void addCorsMappings(CorsRegistry registry) {
             registry
                     .addMapping("/**")
-                    .allowedOrigins("http://localhost:5173")
+                    .allowedOrigins("http://3.142.236.250", "http://ec2-3-142-236-250.us-east-2.compute.amazonaws.com")
                     .allowedMethods("*")
                     .allowedHeaders("*")
                     .allowCredentials(true);
