@@ -22,7 +22,7 @@ export default function Login({setLoggedInUser}) {
 
     function handleLogin(event) {
         event.preventDefault();
-        const backendUrl = "ec2-3-142-236-250.us-east-2.compute.amazonaws.com";
+        const backendUrl = "/api";
         const cleanEin = inputEin.trim();
 
         const getUrl = `${backendUrl}/login`;
