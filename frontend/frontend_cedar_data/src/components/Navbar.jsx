@@ -13,7 +13,8 @@ export default function Navbar({updateState, resetState, loggedInUser}) {
     function handleSearchButton(event) {
         // Prevent reloading page when button clicked
         event.preventDefault();
-
+        // AWS backend url
+        const backendUrl = "ec2-3-142-236-250.us-east-2.compute.amazonaws.com";
         let getUrl = "";
 
         const trimAddress = addressSearch.trim();
@@ -24,11 +25,11 @@ export default function Navbar({updateState, resetState, loggedInUser}) {
             const streetNumber = splitAddress[0];
             const streetName = splitAddress.slice(1).join(" ");
             //Build full url
-            getUrl = "http://localhost:8080/results?num=" + streetNumber + "&name=" + encodeURIComponent(streetName);
+            getUrl = `${backendUrl}/results?num=${streetNumber}&name=${encodeURIComponent(streetName)}`;
         }
         else if(isNaN(splitAddress[0])) {
             const neighborhood = splitAddress[0];
-            getUrl = "http://localhost:8080/results?neighborhood=" + encodeURIComponent(neighborhood);
+            getUrl = `${backendUrl}/results?neighborhood=${encodeURIComponent(neighborhood)}`;
         }
 
         //Create object request

@@ -22,10 +22,10 @@ export default function Login({setLoggedInUser}) {
 
     function handleLogin(event) {
         event.preventDefault();
-
+        const backendUrl = "ec2-3-142-236-250.us-east-2.compute.amazonaws.com";
         const cleanEin = inputEin.trim();
 
-        const getUrl = "http://localhost:8080/login";
+        const getUrl = `${backendUrl}/login`;
 
         const loginObj = {
             method: "POST",

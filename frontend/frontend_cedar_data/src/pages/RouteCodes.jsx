@@ -8,8 +8,8 @@ export default function RouteCodes() {
     const {routeNumber} = useParams();
 
     function handleAddresses() {
-
-        const getUrl = `http://localhost:8080/codes/${routeNumber}`;
+        const backendUrl = "ec2-3-142-236-250.us-east-2.compute.amazonaws.com";
+        const getUrl = `${backendUrl}/codes/${routeNumber}`;
 
         const addressObj = {
             method: "GET"
