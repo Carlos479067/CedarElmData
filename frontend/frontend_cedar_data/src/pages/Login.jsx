@@ -25,7 +25,7 @@ export default function Login({setLoggedInUser}) {
         const backendUrl = "/api";
         const cleanEin = inputEin.trim();
 
-        const getUrl = `http://3.142.236.250:8080/login`;
+        const getUrl = `${backendUrl}/login`;
 
         const loginObj = {
             method: "POST",
