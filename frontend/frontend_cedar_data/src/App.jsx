@@ -14,17 +14,17 @@ import Signup from "./pages/Signup.jsx";
 function App() {
 
     const [searchResults, setSearchResults] = useState("");
-    const [loggedInUser, setLoggedInUser] = useState("");
+    // const [loggedInUser, setLoggedInUser] = useState("");
 
-    useEffect(() => {
-        // Retrieve saved user object from localStorage
-        const savedUser = localStorage.getItem("user");
-
-        if (savedUser) {
-            // Parse JSON string back into an object and update state
-            setLoggedInUser(JSON.parse(savedUser));
-        }
-    }, []);
+    // useEffect(() => {
+    //     // Retrieve saved user object from localStorage
+    //     const savedUser = localStorage.getItem("user");
+    //
+    //     if (savedUser) {
+    //         // Parse JSON string back into an object and update state
+    //         setLoggedInUser(JSON.parse(savedUser));
+    //     }
+    // }, []);
 
 
     function updateState(data) {
@@ -37,13 +37,13 @@ function App() {
 
   return (
     <div className={"pageContainer"}>
-      <Header searchResults={searchResults} loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>
-      <Navbar updateState={updateState} resetState={resetState} loggedInUser={loggedInUser}/>
+      <Header searchResults={searchResults}/>
+      <Navbar updateState={updateState} resetState={resetState}/>
         <main className={"appMain"}>
         <Routes>
-            <Route path={"/login"} element={<Login loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>}/>
-            <Route path={"/signup"} element={<Signup />}/>
-            <Route path={"/"} element={loggedInUser ? <Home searchResults={searchResults}/> : <Navigate to={"/login"} />}/>
+            {/*<Route path={"/login"} element={<Login loggedInUser={loggedInUser} setLoggedInUser={setLoggedInUser}/>}/>*/}
+            {/*<Route path={"/signup"} element={<Signup />}/>*/}
+            <Route path={"/"} element={<Home searchResults={searchResults}/>}/>
             <Route path={"/forms"} element={<Forms />}/>
             <Route path={"/codes/:routeNumber"} element={<RouteCodes/>}/>
             <Route path={"/splits/:routeNumber"} element={<RouteSplits/>}/>

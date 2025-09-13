@@ -24,7 +24,7 @@ export default function Navbar({updateState, resetState, loggedInUser}) {
             const streetNumber = splitAddress[0];
             const streetName = splitAddress.slice(1).join(" ");
             //Build full url
-            getUrl = `http://localhost:8080/api/results?num=${streetNumber}&name=${encodeURIComponent(streetName)}`;
+            getUrl = `${import.meta.env.VITE_API_URL}/api/results?num=${streetNumber}&name=${encodeURIComponent(streetName)}`;
         }
         else if(isNaN(splitAddress[0])) {
             const neighborhood = splitAddress[0];
@@ -56,7 +56,7 @@ export default function Navbar({updateState, resetState, loggedInUser}) {
             <div className={"navContainer"}>
                 <ul>
                     <li><NavLink to={"/"} onClick={resetState}><h3>Home</h3></NavLink></li>
-                    {loggedInUser ? <li><NavLink to={"/forms"}><h3>Forms</h3></NavLink></li> : null}
+                    <li><NavLink to={"/forms"}><h3>Forms</h3></NavLink></li>
                     {/*<li className={"dropdown"}>*/}
                     {/*    <a><h3>Route Codes & Splits</h3></a>*/}
                     {/*    <ul className={"dropdown-content"}>*/}
