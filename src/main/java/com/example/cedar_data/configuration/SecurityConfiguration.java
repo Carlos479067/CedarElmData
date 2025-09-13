@@ -15,7 +15,9 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import java.rmi.registry.Registry;
 import java.util.List;
 
 @Configuration
@@ -24,12 +26,10 @@ public class SecurityConfiguration {
         // Declare bean that configures security rules
         @Bean
         public SecurityFilterChain secureHttp(HttpSecurity http) throws Exception {
-            http.csrf(csrf -> csrf
-                            .ignoringRequestMatchers("/api/login")
-                    )
+            http.csrf(csrf -> csrf.disable())
                     .authorizeHttpRequests((requests) -> requests
                     //No authorization needed for /signup & /account
-                    .requestMatchers("/api/login", "/api/signup", "/results/**", "/codes/**").permitAll()
+                    .requestMatchers("/api/login", "/api/signup", "/api/results/**", "/api/codes/**").permitAll()
                     .anyRequest().authenticated()
             );
             return http.build();

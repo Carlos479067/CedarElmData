@@ -9,8 +9,7 @@ export default function RouteSplits() {
     const {routeNumber} = useParams();
 
     function handleAddresses() {
-        const backendUrl = "ec2-3-142-236-250.us-east-2.compute.amazonaws.com";
-        const getUrl = `${backendUrl}/splits/${routeNumber}`;
+        const getUrl = `${import.meta.env.VITE_API_URL}/splits/${routeNumber}`;
 
         const addressObject = {
             method: "GET"

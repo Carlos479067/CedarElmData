@@ -1,0 +1,4 @@
+DATASOURCE_URL=jdbc:mysql://cedar-db.c5ewmg4cab8o.us-east-2.rds.amazonaws.com:3306/cedar_db
+DATASOURCE_USER=admin
+DATASOURCE_PASSWORD=Lancer018!
+FRONTEND_URL=https://clinquant-zabaione-2d7570.netlify.app/

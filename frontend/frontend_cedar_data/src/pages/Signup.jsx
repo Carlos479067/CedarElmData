@@ -34,10 +34,10 @@ export default function Signup() {
 
     function handleSignup(event) {
         event.preventDefault();
-        const backendUrl = "/api";
+
         const cleanEin = inputEin.trim();
 
-        const getUrl = `${backendUrl}/signup`;
+        const getUrl = `${import.meta.env.VITE_API_URL}/api/signup`;
 
         const signupObj = {
             method: "POST",

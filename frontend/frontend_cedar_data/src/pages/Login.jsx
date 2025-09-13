@@ -22,10 +22,10 @@ export default function Login({setLoggedInUser}) {
 
     function handleLogin(event) {
         event.preventDefault();
-        const backendUrl = "/api";
+
         const cleanEin = inputEin.trim();
 
-        const getUrl = `${backendUrl}/login`;
+        const getUrl = `${import.meta.env.VITE_API_URL}/api/login`;
 
         const loginObj = {
             method: "POST",
